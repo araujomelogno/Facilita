@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,MenuController } from 'ionic-angular';
 
 /*
   Generated class for the OfferServiceViewWorksPage page.
@@ -12,8 +12,8 @@ import { NavController } from 'ionic-angular';
 })
 export class OfferServiceViewWorksPage {
 
-  constructor(private nav: NavController) {
-
+  constructor(private nav: NavController, private menu:MenuController) {
+    this.menu.enable(true, 'offerMenu');
+    this.menu.enable(false, 'hireMenu');
   }
-
 }

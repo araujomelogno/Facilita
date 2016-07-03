@@ -14,46 +14,57 @@ import { HireServiceHomePage} from './pages/hire-service-home/hire-service-home'
 import { HireServiceViewHiredServicesPage} from './pages/hire-service-view-hired-services/hire-service-view-hired-services';
 
 import { OfferServiceEditProfilePage} from './pages/offer-service-edit-profile/offer-service-edit-profile'
-import { OfferServiceHelpPage} from './pages/offer-service-help/offer-service-help';
+import { OfferServiceHelpPage } from './pages/offer-service-help/offer-service-help';
 import { OfferServiceHomePage} from './pages/offer-service-home/offer-service-home';
 import { OfferServiceViewSchedulePage} from './pages/offer-service-view-schedule/offer-service-view-schedule';
 import { OfferServiceViewWorksPage} from './pages/offer-service-view-works/offer-service-view-works';
 
 
 @Component({
-  templateUrl: 'build/app.html'
+    templateUrl: 'build/app.html'
 })
 class MyApp {
-  @ViewChild(Nav) nav: Nav;
+    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+    rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>
+    hireServicePages: Array<{ title: string, component: any }>;
+    offerServicePages: Array<{ title: string, component: any }>;
 
-  constructor(private platform: Platform) {
-    this.initializeApp();
+    constructor(private platform: Platform) {
+        this.initializeApp();
+        this.hireServicePages = [
+            { title: 'Inicio', component: InitPage },
+            { title: 'Contratar', component: HireServiceHomePage },
+            { title: 'Serv. Contratados', component: HireServiceViewHiredServicesPage },
+            { title: 'Perfil', component: HireServiceEditProfilePage },
+            { title: 'Ayuda', component: HireServiceHelpPage }
+        ];
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Page uno', component: Page1 },
-      { title: 'Page dos', component: Page2 }
-    ];
+        this.offerServicePages = [
+            { title: 'Inicio', component: InitPage },
+            { title: 'Buscar', component: OfferServiceHomePage },
+            { title: 'Agenda', component: OfferServiceViewSchedulePage },
+            { title: 'Trabajos', component: OfferServiceViewWorksPage },
+            { title: 'Perfil', component: OfferServiceEditProfilePage },
+            { title: 'Ayuda', component: OfferServiceHelpPage }
+        ];
 
-  }
+    }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-    });
-  }
+    initializeApp() {
+        this.platform.ready().then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            StatusBar.styleDefault();
+        });
+    }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+    openPage(page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    }
 }
 
 ionicBootstrap(MyApp);
