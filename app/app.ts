@@ -43,7 +43,7 @@ class MyApp {
 
         this.offerServicePages = [
             { title: 'Inicio', component: InitPage },
-            { title: 'Buscar', component: OfferServiceHomePage },
+            { title: 'Pedidos', component: OfferServiceHomePage },
             { title: 'Agenda', component: OfferServiceViewSchedulePage },
             { title: 'Trabajos', component: OfferServiceViewWorksPage },
             { title: 'Perfil', component: OfferServiceEditProfilePage },

@@ -1,0 +1,39 @@
+<!--
+Generated template for the HireServiceRequestPage page.
+
+See http://ionicframework.com/docs/v2/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Dónde y cuándo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding block>
+  <ion-list>
+    <ion-item   (click)="setLocation()">
+      <ion-label>Dónde</ion-label>
+      <ion-icon  item-right  name="arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cuándo</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Desde</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeInit"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hasta</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeEnd"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+
+  <button block secondary style="margin-bottom:14px" (click)="query()">Buscar</button>
+
+</ion-content>

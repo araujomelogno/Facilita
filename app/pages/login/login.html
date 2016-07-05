@@ -1,3 +1,26 @@
-<ion-content padding>
+<ionic-view class="home">
+<ion-content  overflow-scroll="false">
+  <div padding block height="100%" >
+    <section  class="login-container">
+      <div class = "col header text-center">
+        <img src="img/home.png" width="auto" height="auto" style="display: block; margin-left: auto; margin-right: auto;" class="logo">
+        <ion-list style="margin-top:8px;">
+          <ion-item>
+            <ion-label floating>Usuario</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
 
+          <ion-item>
+            <ion-label floating>Constraseña</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <button block light (click)="login()">Iniciar</button>
+        <button clear block (click)="register()">No tengo usuario aún</button>
+      </div>
+    </section>
+  </div>
 </ion-content>
+</ionic-view>

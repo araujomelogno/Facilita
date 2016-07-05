@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Resultado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button menuClose ion-item *ngFor="let p of hireServicePages" (click)="openPage(p)">
+    {{p.title}}
+  </button>
+
+
+  <ion-card   *ngFor="let r of result" >
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="img/marty-avatar.png">
+      </ion-avatar>
+      <h2>{{r.title}}</h2>
+    </ion-item>
+
+    <img src="img/limpieza.png">
+
+    <ion-card-content>
+      <p>{{r.description}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button secondary clear small>
+          <ion-icon name="star"></ion-icon>
+          <div>{{r.recommendationsQ}} Evaluaciones</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button secondary clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{r.reviewsQ}} Comentarios</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col center text-center>
+        <button secondary small block>
+          <div>Contratar</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+</ion-content>

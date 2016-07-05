@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController,MenuController } from 'ionic-angular';
-
+import { NavController, MenuController } from 'ionic-angular';
+import { HireServiceRequestPage}  from '../hire-service-request/hire-service-request';
 /*
   Generated class for the HireServiceHomePage page.
 
@@ -8,13 +8,18 @@ import { NavController,MenuController } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  templateUrl: 'build/pages/hire-service-home/hire-service-home.html',
+    templateUrl: 'build/pages/hire-service-home/hire-service-home.html',
 })
 export class HireServiceHomePage {
 
-  constructor(private nav: NavController, private menu:MenuController) {
-    this.menu.enable(false, 'offerMenu');
-    this.menu.enable(true, 'hireMenu');
-  }
+    constructor(private nav: NavController, private menu: MenuController) {
+        this.menu.enable(false, 'offerMenu');
+        this.menu.enable(true, 'hireMenu');
+    }
+
+    hire() {
+        
+        this.nav.push(HireServiceRequestPage);
+    }
 
 }
