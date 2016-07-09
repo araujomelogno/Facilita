@@ -4,7 +4,8 @@ export class HireServiceSearchResult {
     recommendationsQ: number;
     reviewsQ:number;
     constructor(){
-      
+
     }
+
 
 }

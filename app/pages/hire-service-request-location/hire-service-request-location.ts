@@ -29,6 +29,15 @@ export class HireServiceRequestLocationPage {
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 }
                 this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                this.map.addListener('click', function(e) {
+                    let marker = new google.maps.Marker({
+                        map: this.map,
+                        animation: google.maps.Animation.DROP,
+                        position: e.latLng
+                    });
+                    console.log('entro')
+                    console.log(e.latLng)
+                });
                 this.loading.dismiss();
             },
             (error) => {
@@ -39,4 +48,33 @@ export class HireServiceRequestLocationPage {
 
         this.nav.present(this.loading);
     }
+
+    addMarker(event) {
+        console.log('hola');
+        console.log(event);
+        console.log('hola');
+        let marker = new google.maps.Marker({
+            map: this.map,
+            animation: google.maps.Animation.DROP,
+            position:  this.map.getCenter()
+        });
+
+
+        let content = "<h4>Information!</h4>";
+
+        //    this.addInfoWindow(marker, content);
+    }
+
+    addInfoWindow(marker, content) {
+
+        let infoWindow = new google.maps.InfoWindow({
+            content: content
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.open(this.map, marker);
+        });
+
+    }
+
 }

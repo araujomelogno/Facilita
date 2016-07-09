@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Alert } from 'ionic-angular';
 import { HireServiceSearchResult} from '../../models/hire/HireServiceSearchResult.ts'
+import { InitPage} from '../init/init';
 /*
   Generated class for the HireServiceSearchResultsPage page.
 
@@ -29,4 +30,19 @@ export class HireServiceSearchResultsPage {
 
     }
 
+    hire() {
+        let alert = Alert.create({
+            title: 'Servicio contratado',
+            subTitle: 'El servicio fue contratado con éxito',
+            buttons: [
+                {
+                    text: 'OK',
+                    handler: data => {
+                       this.nav.setRoot(InitPage);
+                    }
+                }
+            ]
+        });
+        this.nav.present(alert);
+    }
 }

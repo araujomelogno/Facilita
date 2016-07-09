@@ -15,6 +15,7 @@ export class HireServiceHelpPage {
   constructor(private menu: MenuController,private nav: NavController) {
     this.menu.enable(false, 'offerMenu');
     this.menu.enable(true, 'hireMenu');
+    
   }
 
 }
