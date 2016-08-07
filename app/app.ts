@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { App, ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
- 
+
 import { Page1 } from './pages/page1/page1';
 import { Page2 } from './pages/page2/page2';
 import { LoginPage} from './pages/login/login'
@@ -19,9 +19,11 @@ import { OfferServiceHomePage} from './pages/offer-service-home/offer-service-ho
 import { OfferServiceViewSchedulePage} from './pages/offer-service-view-schedule/offer-service-view-schedule';
 import { OfferServiceViewWorksPage} from './pages/offer-service-view-works/offer-service-view-works';
 
+import { UserProvider} from './providers/user-provider/user-provider';
 
 @Component({
     templateUrl: 'build/app.html'
+
 })
 class MyApp {
     @ViewChild(Nav) nav: Nav;
@@ -66,4 +68,4 @@ class MyApp {
         this.nav.setRoot(page.component);
     }
 }
-ionicBootstrap(MyApp); 
+ionicBootstrap(MyApp,[UserProvider]); 

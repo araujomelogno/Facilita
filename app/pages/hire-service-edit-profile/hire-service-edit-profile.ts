@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController,MenuController } from 'ionic-angular';
+import { UserProvider } from '../../providers/user-provider/user-provider';
 
 /*
   Generated class for the HireServiceEditProfilePage page.
@@ -9,9 +10,10 @@ import { NavController,MenuController } from 'ionic-angular';
 */
 @Component({
   templateUrl: 'build/pages/hire-service-edit-profile/hire-service-edit-profile.html',
+  providers: [UserProvider]
 })
 export class HireServiceEditProfilePage {
-  constructor(private nav: NavController, private menu:MenuController) {
+  constructor(private nav: NavController, private menu:MenuController, private userProvider:UserProvider) {
     this.menu.enable(false, 'offerMenu');
     this.menu.enable(true, 'hireMenu');
   }
